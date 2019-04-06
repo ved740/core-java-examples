@@ -11,7 +11,7 @@ public class CustomAnnotationUsingReflectionAPIEx {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		Student2 dStud2 = new DayScholar();
+		Student2 dStud2 = new DayScholar2();
 		Class c = dStud2.getClass();
 		Annotation[] annotations = c.getDeclaredAnnotations();
 		for(Annotation annotation: annotations) {
@@ -33,13 +33,13 @@ public class CustomAnnotationUsingReflectionAPIEx {
 
 /**
  * @author ved.prakash01 Create a custom annotation - ChnageDetail 
- * ChangeDetail keep track of which developer modified which method in the annotated 
+ * ChangeDetail2 keep track of which developer modified which method in the annotated 
  * @Retention : tells the validity upto which the annotation will remain valid
  * @Target: tells the scope of implementation
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@interface ChangeDetail {
+@interface ChangeDetail2 {
 	String authorName();
 	String methodName();
 }
@@ -58,9 +58,9 @@ abstract class Student2 {
 	abstract double calculateFee();
 }
 
-@ChangeDetail(authorName="VP", methodName="calculateFee")
+@ChangeDetail2(authorName="VP", methodName="calculateFee")
 
-class DayScholar extends Student2 {
+class DayScholar2 extends Student2 {
 
 	@Override
 	double calculateFee() {
